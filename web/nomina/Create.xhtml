@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="NominaCreateDlg" widgetVar="NominaCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateNominaTitle}">
+            <h:form id="NominaCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{nominaController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateNominaLabel_idNomina}" for="idNomina" />
+                        <p:inputText id="idNomina" value="#{nominaController.selected.idNomina}" title="#{bundle.CreateNominaTitle_idNomina}" required="true" requiredMessage="#{bundle.CreateNominaRequiredMessage_idNomina}"/>
+                        <p:outputLabel value="#{bundle.CreateNominaLabel_horasTrabajadas}" for="horasTrabajadas" />
+                        <p:inputText id="horasTrabajadas" value="#{nominaController.selected.horasTrabajadas}" title="#{bundle.CreateNominaTitle_horasTrabajadas}" required="true" requiredMessage="#{bundle.CreateNominaRequiredMessage_horasTrabajadas}"/>
+                        <p:outputLabel value="#{bundle.CreateNominaLabel_horasExtras}" for="horasExtras" />
+                        <p:inputText id="horasExtras" value="#{nominaController.selected.horasExtras}" title="#{bundle.CreateNominaTitle_horasExtras}" required="true" requiredMessage="#{bundle.CreateNominaRequiredMessage_horasExtras}"/>
+                        <p:outputLabel value="#{bundle.CreateNominaLabel_sueldo}" for="sueldo" />
+                        <p:inputText id="sueldo" value="#{nominaController.selected.sueldo}" title="#{bundle.CreateNominaTitle_sueldo}" required="true" requiredMessage="#{bundle.CreateNominaRequiredMessage_sueldo}"/>
+                        <p:outputLabel value="#{bundle.CreateNominaLabel_idEmpleado}" for="idEmpleado" />
+                        <p:selectOneMenu id="idEmpleado" value="#{nominaController.selected.idEmpleado}" required="true" requiredMessage="#{bundle.EditNominaRequiredMessage_idEmpleado}">
+                            <f:selectItems value="#{empleadoController.itemsAvailableSelectOne}"
+                                           var="idEmpleadoItem"
+                                           itemValue="#{idEmpleadoItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{nominaController.create}" value="#{bundle.Save}" update="display,:NominaListForm:datalist,:growl" oncomplete="handleSubmit(args,'NominaCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="NominaCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

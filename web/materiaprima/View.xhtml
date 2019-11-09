@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="MateriaprimaViewDlg" widgetVar="MateriaprimaViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewMateriaprimaTitle}">
+            <h:form id="MateriaprimaViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{materiaprimaController.selected != null}">
+                        <h:outputText value="#{bundle.ViewMateriaprimaLabel_idMaterial}"/>
+                        <h:outputText value="#{materiaprimaController.selected.idMaterial}" title="#{bundle.ViewMateriaprimaTitle_idMaterial}"/>
+                        <h:outputText value="#{bundle.ViewMateriaprimaLabel_nombre}"/>
+                        <h:outputText value="#{materiaprimaController.selected.nombre}" title="#{bundle.ViewMateriaprimaTitle_nombre}"/>
+                        <h:outputText value="#{bundle.ViewMateriaprimaLabel_precioUnidad}"/>
+                        <h:outputText value="#{materiaprimaController.selected.precioUnidad}" title="#{bundle.ViewMateriaprimaTitle_precioUnidad}"/>
+                        <h:outputText value="#{bundle.ViewMateriaprimaLabel_existencia}"/>
+                        <h:outputText value="#{materiaprimaController.selected.existencia}" title="#{bundle.ViewMateriaprimaTitle_existencia}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="MateriaprimaViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

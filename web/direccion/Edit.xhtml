@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="DireccionEditDlg" widgetVar="DireccionEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditDireccionTitle}">
+            <h:form id="DireccionEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{direccionController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditDireccionLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{direccionController.selected.id}" title="#{bundle.EditDireccionTitle_id}" required="true" requiredMessage="#{bundle.EditDireccionRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.EditDireccionLabel_direccion}" for="direccion" />
+                        <p:inputText id="direccion" value="#{direccionController.selected.direccion}" title="#{bundle.EditDireccionTitle_direccion}" required="true" requiredMessage="#{bundle.EditDireccionRequiredMessage_direccion}"/>
+                        <p:outputLabel value="#{bundle.EditDireccionLabel_latitud}" for="latitud" />
+                        <p:inputText id="latitud" value="#{direccionController.selected.latitud}" title="#{bundle.EditDireccionTitle_latitud}" required="true" requiredMessage="#{bundle.EditDireccionRequiredMessage_latitud}"/>
+                        <p:outputLabel value="#{bundle.EditDireccionLabel_longitud}" for="longitud" />
+                        <p:inputText id="longitud" value="#{direccionController.selected.longitud}" title="#{bundle.EditDireccionTitle_longitud}" required="true" requiredMessage="#{bundle.EditDireccionRequiredMessage_longitud}"/>
+                        <p:outputLabel value="#{bundle.EditDireccionLabel_foto}" for="foto" />
+                        <p:inputText id="foto" value="#{direccionController.selected.foto}" title="#{bundle.EditDireccionTitle_foto}" required="true" requiredMessage="#{bundle.EditDireccionRequiredMessage_foto}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{direccionController.update}" value="#{bundle.Save}" update="display,:DireccionListForm:datalist,:growl" oncomplete="handleSubmit(args, 'DireccionEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="DireccionEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="MaquinariaCreateDlg" widgetVar="MaquinariaCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateMaquinariaTitle}">
+            <h:form id="MaquinariaCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{maquinariaController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateMaquinariaLabel_idMaquinaria}" for="idMaquinaria" />
+                        <p:inputText id="idMaquinaria" value="#{maquinariaController.selected.idMaquinaria}" title="#{bundle.CreateMaquinariaTitle_idMaquinaria}" required="true" requiredMessage="#{bundle.CreateMaquinariaRequiredMessage_idMaquinaria}"/>
+                        <p:outputLabel value="#{bundle.CreateMaquinariaLabel_nombreMaquinaria}" for="nombreMaquinaria" />
+                        <p:inputTextarea rows="4" cols="30" id="nombreMaquinaria" value="#{maquinariaController.selected.nombreMaquinaria}" title="#{bundle.CreateMaquinariaTitle_nombreMaquinaria}" required="true" requiredMessage="#{bundle.CreateMaquinariaRequiredMessage_nombreMaquinaria}"/>
+                        <p:outputLabel value="#{bundle.CreateMaquinariaLabel_tipoMaquinaria}" for="tipoMaquinaria" />
+                        <p:inputText id="tipoMaquinaria" value="#{maquinariaController.selected.tipoMaquinaria}" title="#{bundle.CreateMaquinariaTitle_tipoMaquinaria}" required="true" requiredMessage="#{bundle.CreateMaquinariaRequiredMessage_tipoMaquinaria}"/>
+                        <p:outputLabel value="#{bundle.CreateMaquinariaLabel_modelo}" for="modelo" />
+                        <p:inputText id="modelo" value="#{maquinariaController.selected.modelo}" title="#{bundle.CreateMaquinariaTitle_modelo}" required="true" requiredMessage="#{bundle.CreateMaquinariaRequiredMessage_modelo}"/>
+                        <p:outputLabel value="#{bundle.CreateMaquinariaLabel_anioAdquirido}" for="anioAdquirido" />
+                        <p:inputText id="anioAdquirido" value="#{maquinariaController.selected.anioAdquirido}" title="#{bundle.CreateMaquinariaTitle_anioAdquirido}" required="true" requiredMessage="#{bundle.CreateMaquinariaRequiredMessage_anioAdquirido}"/>
+                        <p:outputLabel value="#{bundle.CreateMaquinariaLabel_estado}" for="estado" />
+                        <p:inputText id="estado" value="#{maquinariaController.selected.estado}" title="#{bundle.CreateMaquinariaTitle_estado}" required="true" requiredMessage="#{bundle.CreateMaquinariaRequiredMessage_estado}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{maquinariaController.create}" value="#{bundle.Save}" update="display,:MaquinariaListForm:datalist,:growl" oncomplete="handleSubmit(args,'MaquinariaCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="MaquinariaCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

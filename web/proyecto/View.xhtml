@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ProyectoViewDlg" widgetVar="ProyectoViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewProyectoTitle}">
+            <h:form id="ProyectoViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{proyectoController.selected != null}">
+                        <h:outputText value="#{bundle.ViewProyectoLabel_idProyecto}"/>
+                        <h:outputText value="#{proyectoController.selected.idProyecto}" title="#{bundle.ViewProyectoTitle_idProyecto}"/>
+                        <h:outputText value="#{bundle.ViewProyectoLabel_nombre}"/>
+                        <h:outputText value="#{proyectoController.selected.nombre}" title="#{bundle.ViewProyectoTitle_nombre}"/>
+                        <h:outputText value="#{bundle.ViewProyectoLabel_factura}"/>
+                        <h:outputText value="#{proyectoController.selected.factura}" title="#{bundle.ViewProyectoTitle_factura}"/>
+                        <h:outputText value="#{bundle.ViewProyectoLabel_estadoProyecto}"/>
+                        <h:outputText value="#{proyectoController.selected.estadoProyecto}" title="#{bundle.ViewProyectoTitle_estadoProyecto}"/>
+                        <h:outputText value="#{bundle.ViewProyectoLabel_fechaInicio}"/>
+                        <h:outputText value="#{proyectoController.selected.fechaInicio}" title="#{bundle.ViewProyectoTitle_fechaInicio}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewProyectoLabel_fechaFin}"/>
+                        <h:outputText value="#{proyectoController.selected.fechaFin}" title="#{bundle.ViewProyectoTitle_fechaFin}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewProyectoLabel_montoEmpleados}"/>
+                        <h:outputText value="#{proyectoController.selected.montoEmpleados}" title="#{bundle.ViewProyectoTitle_montoEmpleados}"/>
+                        <h:outputText value="#{bundle.ViewProyectoLabel_matUti}"/>
+                        <h:outputText value="#{proyectoController.selected.matUti}" title="#{bundle.ViewProyectoTitle_matUti}"/>
+                        <h:outputText value="#{bundle.ViewProyectoLabel_montoMaquinaria}"/>
+                        <h:outputText value="#{proyectoController.selected.montoMaquinaria}" title="#{bundle.ViewProyectoTitle_montoMaquinaria}"/>
+                        <h:outputText value="#{bundle.ViewProyectoLabel_montoMateria}"/>
+                        <h:outputText value="#{proyectoController.selected.montoMateria}" title="#{bundle.ViewProyectoTitle_montoMateria}"/>
+                        <h:outputText value="#{bundle.ViewProyectoLabel_montoTotal}"/>
+                        <h:outputText value="#{proyectoController.selected.montoTotal}" title="#{bundle.ViewProyectoTitle_montoTotal}"/>
+                        <h:outputText value="#{bundle.ViewProyectoLabel_progreso}"/>
+                        <h:outputText value="#{proyectoController.selected.progreso}" title="#{bundle.ViewProyectoTitle_progreso}"/>
+                        <h:outputText value="#{bundle.ViewProyectoLabel_idCliente}"/>
+                        <h:outputText value="#{proyectoController.selected.idCliente}" title="#{bundle.ViewProyectoTitle_idCliente}"/>
+                        <h:outputText value="#{bundle.ViewProyectoLabel_direccion}"/>
+                        <h:outputText value="#{proyectoController.selected.direccion}" title="#{bundle.ViewProyectoTitle_direccion}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="ProyectoViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

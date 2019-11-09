@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ProyectoEditDlg" widgetVar="ProyectoEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditProyectoTitle}">
+            <h:form id="ProyectoEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{proyectoController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditProyectoLabel_idProyecto}" for="idProyecto" />
+                        <p:inputText id="idProyecto" value="#{proyectoController.selected.idProyecto}" title="#{bundle.EditProyectoTitle_idProyecto}" required="true" requiredMessage="#{bundle.EditProyectoRequiredMessage_idProyecto}"/>
+                        <p:outputLabel value="#{bundle.EditProyectoLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{proyectoController.selected.nombre}" title="#{bundle.EditProyectoTitle_nombre}" required="true" requiredMessage="#{bundle.EditProyectoRequiredMessage_nombre}"/>
+                        <p:outputLabel value="#{bundle.EditProyectoLabel_factura}" for="factura" />
+                        <p:inputText id="factura" value="#{proyectoController.selected.factura}" title="#{bundle.EditProyectoTitle_factura}" required="true" requiredMessage="#{bundle.EditProyectoRequiredMessage_factura}"/>
+                        <p:outputLabel value="#{bundle.EditProyectoLabel_estadoProyecto}" for="estadoProyecto" />
+                        <p:inputTextarea rows="4" cols="30" id="estadoProyecto" value="#{proyectoController.selected.estadoProyecto}" title="#{bundle.EditProyectoTitle_estadoProyecto}" required="true" requiredMessage="#{bundle.EditProyectoRequiredMessage_estadoProyecto}"/>
+                        <p:outputLabel value="#{bundle.EditProyectoLabel_fechaInicio}" for="fechaInicio" />
+                        <p:calendar id="fechaInicio" pattern="MM/dd/yyyy" value="#{proyectoController.selected.fechaInicio}" title="#{bundle.EditProyectoTitle_fechaInicio}" required="true" requiredMessage="#{bundle.EditProyectoRequiredMessage_fechaInicio}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditProyectoLabel_fechaFin}" for="fechaFin" />
+                        <p:calendar id="fechaFin" pattern="MM/dd/yyyy" value="#{proyectoController.selected.fechaFin}" title="#{bundle.EditProyectoTitle_fechaFin}" required="true" requiredMessage="#{bundle.EditProyectoRequiredMessage_fechaFin}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditProyectoLabel_montoEmpleados}" for="montoEmpleados" />
+                        <p:inputText id="montoEmpleados" value="#{proyectoController.selected.montoEmpleados}" title="#{bundle.EditProyectoTitle_montoEmpleados}" required="true" requiredMessage="#{bundle.EditProyectoRequiredMessage_montoEmpleados}"/>
+                        <p:outputLabel value="#{bundle.EditProyectoLabel_matUti}" for="matUti" />
+                        <p:inputText id="matUti" value="#{proyectoController.selected.matUti}" title="#{bundle.EditProyectoTitle_matUti}" required="true" requiredMessage="#{bundle.EditProyectoRequiredMessage_matUti}"/>
+                        <p:outputLabel value="#{bundle.EditProyectoLabel_montoMaquinaria}" for="montoMaquinaria" />
+                        <p:inputText id="montoMaquinaria" value="#{proyectoController.selected.montoMaquinaria}" title="#{bundle.EditProyectoTitle_montoMaquinaria}" required="true" requiredMessage="#{bundle.EditProyectoRequiredMessage_montoMaquinaria}"/>
+                        <p:outputLabel value="#{bundle.EditProyectoLabel_montoMateria}" for="montoMateria" />
+                        <p:inputText id="montoMateria" value="#{proyectoController.selected.montoMateria}" title="#{bundle.EditProyectoTitle_montoMateria}" required="true" requiredMessage="#{bundle.EditProyectoRequiredMessage_montoMateria}"/>
+                        <p:outputLabel value="#{bundle.EditProyectoLabel_montoTotal}" for="montoTotal" />
+                        <p:inputText id="montoTotal" value="#{proyectoController.selected.montoTotal}" title="#{bundle.EditProyectoTitle_montoTotal}" required="true" requiredMessage="#{bundle.EditProyectoRequiredMessage_montoTotal}"/>
+                        <p:outputLabel value="#{bundle.EditProyectoLabel_progreso}" for="progreso" />
+                        <p:inputText id="progreso" value="#{proyectoController.selected.progreso}" title="#{bundle.EditProyectoTitle_progreso}" required="true" requiredMessage="#{bundle.EditProyectoRequiredMessage_progreso}"/>
+                        <p:outputLabel value="#{bundle.EditProyectoLabel_idCliente}" for="idCliente" />
+                        <p:selectOneMenu id="idCliente" value="#{proyectoController.selected.idCliente}" required="true" requiredMessage="#{bundle.EditProyectoRequiredMessage_idCliente}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{clienteController.itemsAvailableSelectOne}"
+                                           var="idClienteItem"
+                                           itemValue="#{idClienteItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditProyectoLabel_direccion}" for="direccion" />
+                        <p:selectOneMenu id="direccion" value="#{proyectoController.selected.direccion}" required="true" requiredMessage="#{bundle.EditProyectoRequiredMessage_direccion}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{direccionController.itemsAvailableSelectOne}"
+                                           var="direccionItem"
+                                           itemValue="#{direccionItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{proyectoController.update}" value="#{bundle.Save}" update="display,:ProyectoListForm:datalist,:growl" oncomplete="handleSubmit(args, 'ProyectoEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ProyectoEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -55,7 +55,13 @@
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{materiaprimaController.prepareCreate}" update=":MateriaprimaCreateForm" oncomplete="PF('MateriaprimaCreateDialog').show()"/>
                             <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":MateriaprimaViewForm" oncomplete="PF('MateriaprimaViewDialog').show()" disabled="#{empty materiaprimaController.selected}"/>
                             <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":MateriaprimaEditForm" oncomplete="PF('MateriaprimaEditDialog').show()" disabled="#{empty materiaprimaController.selected}"/>
-                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{materiaprimaController.destroy}" update=":growl,datalist" disabled="#{empty materiaprimaController.selected}"/>
+                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{materiaprimaController.destroy}" update=":growl,datalist" disabled="#{empty materiaprimaController.selected}">
+                                <p:confirm header="Confirmacion" message="Esta seguro de borrarlo" icon="pi pi-exclamation-triangle"></p:confirm>
+                            </p:commandButton>
+                             <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                                <p:commandButton value="Si, Eliminar" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check"></p:commandButton>
+                                <p:commandButton value="Cancelar" type="button" styleClass="ui-confirmdialog-no" icon="pi pi-check"></p:commandButton>
+                            </p:confirmDialog>
                         </f:facet>
                     </p:dataTable>
                 </p:panel>

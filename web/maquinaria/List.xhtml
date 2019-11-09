@@ -7,8 +7,8 @@
       xmlns:p="http://primefaces.org/ui">
 
     <ui:composition template="/template.xhtml">
-
-        <h:outputStylesheet library="css/bootstrap/css" name="bootstrap.css"/>
+        <!--<link href="../resources/css/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>-->
+        <h:outputStylesheet library="css" name="jsfcrud"/>
         <ui:define name="title">
             <h:outputText value="#{bundle.ListMaquinariaTitle}"></h:outputText>
         </ui:define>
@@ -64,7 +64,7 @@
                             <h:outputText value="#{item.estado}"/>
                         </p:column>
                         <f:facet name="footer">
-                            <p:commandButton class="btn btn-primary" id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{maquinariaController.prepareCreate}" update=":MaquinariaCreateForm" oncomplete="PF('MaquinariaCreateDialog').show()"/>
+                            <p:commandButton styleClass="ui-button" id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{maquinariaController.prepareCreate}" update=":MaquinariaCreateForm" oncomplete="PF('MaquinariaCreateDialog').show()"/>
                             <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":MaquinariaViewForm" oncomplete="PF('MaquinariaViewDialog').show()" disabled="#{empty maquinariaController.selected}"/>
                             <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":MaquinariaEditForm" oncomplete="PF('MaquinariaEditDialog').show()" disabled="#{empty maquinariaController.selected}"/>
                             <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{maquinariaController.destroy}" update=":growl,datalist" disabled="#{empty maquinariaController.selected}">

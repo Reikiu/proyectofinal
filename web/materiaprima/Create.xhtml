@@ -12,8 +12,6 @@
             <h:form id="MateriaprimaCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{materiaprimaController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateMateriaprimaLabel_idMaterial}" for="idMaterial" />
-                        <p:inputText id="idMaterial" value="#{materiaprimaController.selected.idMaterial}" title="#{bundle.CreateMateriaprimaTitle_idMaterial}" required="true" requiredMessage="#{bundle.CreateMateriaprimaRequiredMessage_idMaterial}"/>
                         <p:outputLabel value="#{bundle.CreateMateriaprimaLabel_nombre}" for="nombre" />
                         <p:inputText id="nombre" value="#{materiaprimaController.selected.nombre}" title="#{bundle.CreateMateriaprimaTitle_nombre}" required="true" requiredMessage="#{bundle.CreateMateriaprimaRequiredMessage_nombre}"/>
                         <p:outputLabel value="#{bundle.CreateMateriaprimaLabel_precioUnidad}" for="precioUnidad" />

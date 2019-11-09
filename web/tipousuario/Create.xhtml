@@ -12,8 +12,6 @@
             <h:form id="TipousuarioCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{tipousuarioController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateTipousuarioLabel_idTipo}" for="idTipo" />
-                        <p:inputText id="idTipo" value="#{tipousuarioController.selected.idTipo}" title="#{bundle.CreateTipousuarioTitle_idTipo}" required="true" requiredMessage="#{bundle.CreateTipousuarioRequiredMessage_idTipo}"/>
                         <p:outputLabel value="#{bundle.CreateTipousuarioLabel_tipoUsuario}" for="tipoUsuario" />
                         <p:inputText id="tipoUsuario" value="#{tipousuarioController.selected.tipoUsuario}" title="#{bundle.CreateTipousuarioTitle_tipoUsuario}" required="true" requiredMessage="#{bundle.CreateTipousuarioRequiredMessage_tipoUsuario}"/>
                     </p:panelGrid>

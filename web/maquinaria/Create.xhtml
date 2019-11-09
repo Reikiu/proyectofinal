@@ -12,8 +12,6 @@
             <h:form id="MaquinariaCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{maquinariaController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateMaquinariaLabel_idMaquinaria}" for="idMaquinaria" />
-                        <p:inputText id="idMaquinaria" value="#{maquinariaController.selected.idMaquinaria}" title="#{bundle.CreateMaquinariaTitle_idMaquinaria}" required="true" requiredMessage="#{bundle.CreateMaquinariaRequiredMessage_idMaquinaria}"/>
                         <p:outputLabel value="#{bundle.CreateMaquinariaLabel_nombreMaquinaria}" for="nombreMaquinaria" />
                         <p:inputTextarea rows="4" cols="30" id="nombreMaquinaria" value="#{maquinariaController.selected.nombreMaquinaria}" title="#{bundle.CreateMaquinariaTitle_nombreMaquinaria}" required="true" requiredMessage="#{bundle.CreateMaquinariaRequiredMessage_nombreMaquinaria}"/>
                         <p:outputLabel value="#{bundle.CreateMaquinariaLabel_tipoMaquinaria}" for="tipoMaquinaria" />

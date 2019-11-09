@@ -12,8 +12,6 @@
             <h:form id="ProyectoCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{proyectoController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateProyectoLabel_idProyecto}" for="idProyecto" />
-                        <p:inputText id="idProyecto" value="#{proyectoController.selected.idProyecto}" title="#{bundle.CreateProyectoTitle_idProyecto}" required="true" requiredMessage="#{bundle.CreateProyectoRequiredMessage_idProyecto}"/>
                         <p:outputLabel value="#{bundle.CreateProyectoLabel_nombre}" for="nombre" />
                         <p:inputText id="nombre" value="#{proyectoController.selected.nombre}" title="#{bundle.CreateProyectoTitle_nombre}" required="true" requiredMessage="#{bundle.CreateProyectoRequiredMessage_nombre}"/>
                         <p:outputLabel value="#{bundle.CreateProyectoLabel_factura}" for="factura" />

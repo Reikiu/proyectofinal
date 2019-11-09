@@ -12,8 +12,6 @@
             <h:form id="NominaCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{nominaController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateNominaLabel_idNomina}" for="idNomina" />
-                        <p:inputText id="idNomina" value="#{nominaController.selected.idNomina}" title="#{bundle.CreateNominaTitle_idNomina}" required="true" requiredMessage="#{bundle.CreateNominaRequiredMessage_idNomina}"/>
                         <p:outputLabel value="#{bundle.CreateNominaLabel_horasTrabajadas}" for="horasTrabajadas" />
                         <p:inputText id="horasTrabajadas" value="#{nominaController.selected.horasTrabajadas}" title="#{bundle.CreateNominaTitle_horasTrabajadas}" required="true" requiredMessage="#{bundle.CreateNominaRequiredMessage_horasTrabajadas}"/>
                         <p:outputLabel value="#{bundle.CreateNominaLabel_horasExtras}" for="horasExtras" />

@@ -136,10 +136,10 @@
                         <th> ACCION </th>
                     </tr></thead>
                     <%
-                        if(request.getAttribute("proyecto")!=null){
+                        if(request.getAttribute("proyectos")!=null){
                             
                             ArrayList<Proyectos> pro = new ArrayList<Proyectos>();
-                            pro.addAll((Collection)request.getAttribute("proyecto"));
+                            pro.addAll((Collection)request.getAttribute("proyectos"));
                             
                             for(Proyectos p:pro){
                                 out.println("<tr><td>"+p.getId()+""
@@ -149,7 +149,7 @@
                                         + "</td><td>"+p.getFoto()+""
                                         + "</td>"
                                         + "<td colspan='2'><input type='button' "
-                                        + "value='editar' class='btn btn-danger' onclick=$('#idProyecto')."
+                                        + "value='editar' class='btn btn-danger' onclick=$('#id')."
                                         + "val('"+p.getId()+"');$('#direccion')."
                                         + "val('"+p.getDireccion().replace(" ", "&nbsp;")+"');$('#latitud')."
                                         + "val('"+p.getLatitud().replace(" ", "&nbsp;")+"');$('#longitud')."

@@ -27,20 +27,24 @@ public class DaoProyecto extends  Conexion implements crud{
 
     @Override
     public ArrayList<Object> mostrar() throws ClassNotFoundException, SQLException {
-          ArrayList<Object> ar= new ArrayList<Object>();
+           ArrayList<Object> ar= new ArrayList<>();
+          ps=con().prepareStatement("select id,direccion,latitud,longitud,foto from direccion");  
         try {
-       ps=super.con().prepareStatement("select * from direccion");  
+             
             rs=ps.executeQuery();
             while(rs.next()){
-                p = new Proyectos(rs.getInt(1), rs.getString(2), rs.getString(3),rs.getString(4),rs.getString(5));
+                p = new Proyectos(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5));
                 ar.add(p);
             }
-        } catch (Exception ex) {
-        
+        } catch (Exception e) {
+          //throw new UnsupportedOperationException(ex.getMessage());
+        }finally{
+            ps.close();
+            con().close();
+         
         }
         return ar;
     }
-
     @Override
     public int insertar(Object ob) throws ClassNotFoundException, SQLException {
        try {

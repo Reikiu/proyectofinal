@@ -32,7 +32,7 @@ public class ControlProyecto extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-      Proyecto p;
+      Proyectos p;
         int r=0;
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

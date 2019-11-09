@@ -10,18 +10,26 @@ package modelo;
  * @author hp
  */
 public class Proyectos {
-    private int idProyecto;
-    private int idCliente;
+    private int id;
     private String direccion;
     private String longitud;
     private String latitud;
     private String foto;
-    private String estadoActual ;
-
+    
+    
     public Proyectos() {
+        
     }
 
     //constructor para agregar
+
+    public Proyectos(int id, String direccion, String longitud, String latitud, String foto) {
+        this.id = id;
+        this.direccion = direccion;
+        this.longitud = longitud;
+        this.latitud = latitud;
+        this.foto = foto;
+    }
 
     public Proyectos(String direccion, String longitud, String latitud, String foto) {
         this.direccion = direccion;
@@ -29,21 +37,14 @@ public class Proyectos {
         this.latitud = latitud;
         this.foto = foto;
     }
+    
 
-    public int getIdProyecto() {
-        return idProyecto;
+    public int getId() {
+        return id;
     }
 
-    public void setIdProyecto(int idProyecto) {
-        this.idProyecto = idProyecto;
-    }
-
-    public int getIdCliente() {
-        return idCliente;
-    }
-
-    public void setIdCliente(int idCliente) {
-        this.idCliente = idCliente;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getDireccion() {
@@ -76,18 +77,6 @@ public class Proyectos {
 
     public void setFoto(String foto) {
         this.foto = foto;
-    }
-
-    public String getEstadoActual() {
-        return estadoActual;
-    }
-
-    public void setEstadoActual(String estadoActual) {
-        this.estadoActual = estadoActual;
-    }
-    
-   
-  
-    
+    }  
  
 }

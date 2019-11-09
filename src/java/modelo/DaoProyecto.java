@@ -8,6 +8,7 @@ package modelo;
 
 import static com.sun.faces.util.CollectionsUtils.ar;
 import modelo.*;
+import modelo.Proyectos;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -21,17 +22,17 @@ import javax.swing.JOptionPane;
 public class DaoProyecto extends  Conexion implements crud{
    PreparedStatement ps;
     ResultSet rs;
-    Proyecto p;
+    Proyectos p;
      int res = 0;
 
     @Override
     public ArrayList<Object> mostrar() throws ClassNotFoundException, SQLException {
           ArrayList<Object> ar= new ArrayList<Object>();
         try {
-       ps=super.con().prepareStatement("select idProyecto, direccion, latitud, foto longitud from proyecto");  
+       ps=super.con().prepareStatement("select * from direccion");  
             rs=ps.executeQuery();
             while(rs.next()){
-                //p=new Proyecto(rs.getInt(1), rs.getString(2), rs.getString(3),rs.getString(4),rs.getString(5));
+                p = new Proyectos(rs.getInt(1), rs.getString(2), rs.getString(3),rs.getString(4),rs.getString(5));
                 ar.add(p);
             }
         } catch (Exception ex) {
@@ -43,8 +44,8 @@ public class DaoProyecto extends  Conexion implements crud{
     @Override
     public int insertar(Object ob) throws ClassNotFoundException, SQLException {
        try {
-            p = (Proyecto)ob;
-            ps = con().prepareStatement("insert into proyecto (direccion ,idCliente, latitud, longitud, foto, estadoActual) values (?,17,?,?,?, 'No Iniciado')");
+            p = (Proyectos)ob;
+            ps = con().prepareStatement("insert into direccion (direccion ,latitud,longitud,foto) values (?,?,?,?)");
             ps.setString(1, p.getDireccion());
             ps.setString(2, p.getLatitud());
             ps.setString(3, p.getLongitud());
@@ -66,13 +67,13 @@ public class DaoProyecto extends  Conexion implements crud{
     @Override
     public int eliminar(Object ob) throws ClassNotFoundException, SQLException {
          try {
-            p=(Proyecto)ob;
+            p=(Proyectos)ob;
             
-            ps=super.con().prepareStatement("update proyecto set estado=0 where idProyecto=?");
-            ps.setInt(1, p.getIdProyecto());
+            ps=super.con().prepareStatement("update direccion set estado=0 where id=?");
+            ps.setInt(1, p.getId());
             res=ps.executeUpdate();
-            ps=super.con().prepareStatement("delete from proyecto where idProyecto=?");
-            ps.setInt(1, p.getIdProyecto());
+            ps=super.con().prepareStatement("delete from direccion where id=?");
+            ps.setInt(1, p.getId());
             res=ps.executeUpdate();
 
         } catch (Exception ex) {

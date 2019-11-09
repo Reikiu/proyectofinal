@@ -4,7 +4,7 @@
     Author     : hp
 --%>
 
-<%@page contentType="text/html" import="constructora.entidades.*" import="java.util.*" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" import="modelo.*" import="java.util.*" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -64,7 +64,7 @@
 
     <body>
          <%
-            if(request.getAttribute("proyecto")!=null)
+            if(request.getAttribute("proyectos")!=null)
                     response.sendRedirect("ControlProyecto?mostrar=1");               
         %>
         <div id="map"></div>
@@ -138,11 +138,11 @@
                     <%
                         if(request.getAttribute("proyecto")!=null){
                             
-                            ArrayList<Proyecto> pro = new ArrayList<Proyecto>();
+                            ArrayList<Proyectos> pro = new ArrayList<Proyectos>();
                             pro.addAll((Collection)request.getAttribute("proyecto"));
                             
-                            for(Proyecto p:pro){
-                                out.println("<tr><td>"+p.getIdProyecto()+""
+                            for(Proyectos p:pro){
+                                out.println("<tr><td>"+p.getId()+""
                                         + "</td><td>"+p.getDireccion()+""
                                         + "</td><td>"+p.getLatitud()+""
                                         + "</td><td>"+p.getLongitud()+""
@@ -150,7 +150,7 @@
                                         + "</td>"
                                         + "<td colspan='2'><input type='button' "
                                         + "value='editar' class='btn btn-danger' onclick=$('#idProyecto')."
-                                        + "val('"+p.getIdProyecto()+"');$('#direccion')."
+                                        + "val('"+p.getId()+"');$('#direccion')."
                                         + "val('"+p.getDireccion().replace(" ", "&nbsp;")+"');$('#latitud')."
                                         + "val('"+p.getLatitud().replace(" ", "&nbsp;")+"');$('#longitud')."
                                         + "val('"+p.getLongitud().replace(" ", "&nbsp;")+"');$('#foto')."

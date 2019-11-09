@@ -12,7 +12,7 @@ import java.sql.*;
  */
 public class Conexion {
     private String driver = "com.mysql.jdbc.Driver";
-    private String url = "jdbc:mysql://127.0.0.1:3306/bdconstructora";
+    private String url = "jdbc:mysql://127.0.0.1:3306/constructora1.0";
     private String user = "root";
     private String pass = "";
     

@@ -20,7 +20,7 @@
                         <p:inputText id="password" value="#{usuarioController.selected.password}" title="#{bundle.EditUsuarioTitle_password}" required="true" requiredMessage="#{bundle.EditUsuarioRequiredMessage_password}"/>
                         <p:outputLabel value="#{bundle.EditUsuarioLabel_idTipo}" for="idTipo" />
                         <p:selectOneMenu id="idTipo" value="#{usuarioController.selected.idTipo}" required="true" requiredMessage="#{bundle.EditUsuarioRequiredMessage_idTipo}">
-                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}" itemValue="null"/>
                             <f:selectItems value="#{tipousuarioController.itemsAvailableSelectOne}"
                                            var="idTipoItem"
                                            itemValue="#{idTipoItem}"/>

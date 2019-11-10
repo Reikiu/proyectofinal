@@ -17,7 +17,13 @@
                         <p:outputLabel value="#{bundle.EditTipousuarioLabel_tipoUsuario}" for="tipoUsuario" />
                         <p:inputText id="tipoUsuario" value="#{tipousuarioController.selected.tipoUsuario}" title="#{bundle.EditTipousuarioTitle_tipoUsuario}" required="true" requiredMessage="#{bundle.EditTipousuarioRequiredMessage_tipoUsuario}"/>
                     </p:panelGrid>
-                    <p:commandButton actionListener="#{tipousuarioController.update}" value="#{bundle.Save}" update="display,:TipousuarioListForm:datalist,:growl" oncomplete="handleSubmit(args, 'TipousuarioEditDialog');"/>
+                    <p:commandButton actionListener="#{tipousuarioController.update}" value="#{bundle.Save}" update="display,:TipousuarioListForm:datalist,:growl" oncomplete="handleSubmit(args, 'TipousuarioEditDialog');">
+                        <p:confirm header="Confirmacion" message="Esta seguro que desea modificar los datos?" icon="pi pi-exclamation-triangle"></p:confirm>
+                            </p:commandButton>
+                             <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                                <p:commandButton value="Si, Reemplazar" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check"></p:commandButton>
+                                <p:commandButton value="Cancelar" type="button" styleClass="ui-confirmdialog-no" icon="pi pi-check"></p:commandButton>
+                            </p:confirmDialog>
                     <p:commandButton value="#{bundle.Cancel}" onclick="TipousuarioEditDialog.hide()"/>
                 </h:panelGroup>
             </h:form>

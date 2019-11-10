@@ -51,7 +51,13 @@
                                            itemValue="#{direccionItem}"/>
                         </p:selectOneMenu>
                     </p:panelGrid>
-                    <p:commandButton actionListener="#{proyectoController.update}" value="#{bundle.Save}" update="display,:ProyectoListForm:datalist,:growl" oncomplete="handleSubmit(args, 'ProyectoEditDialog');"/>
+                    <p:commandButton actionListener="#{proyectoController.update}" value="#{bundle.Save}" update="display,:ProyectoListForm:datalist,:growl" oncomplete="handleSubmit(args, 'ProyectoEditDialog');">
+                        <p:confirm header="Confirmacion" message="Esta seguro que desea modificar los datos?" icon="pi pi-exclamation-triangle"></p:confirm>
+                            </p:commandButton>
+                             <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                                <p:commandButton value="Si, Reemplazar" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check"></p:commandButton>
+                                <p:commandButton value="Cancelar" type="button" styleClass="ui-confirmdialog-no" icon="pi pi-check"></p:commandButton>
+                            </p:confirmDialog>
                     <p:commandButton value="#{bundle.Cancel}" onclick="ProyectoEditDialog.hide()"/>
                 </h:panelGroup>
             </h:form>

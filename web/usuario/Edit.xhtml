@@ -26,7 +26,13 @@
                                            itemValue="#{idTipoItem}"/>
                         </p:selectOneMenu>
                     </p:panelGrid>
-                    <p:commandButton actionListener="#{usuarioController.update}" value="#{bundle.Save}" update="display,:UsuarioListForm:datalist,:growl" oncomplete="handleSubmit(args, 'UsuarioEditDialog');"/>
+                    <p:commandButton actionListener="#{usuarioController.update}" value="#{bundle.Save}" update="display,:UsuarioListForm:datalist,:growl" oncomplete="handleSubmit(args, 'UsuarioEditDialog');">
+                        <p:confirm header="Confirmacion" message="Esta seguro que desea modificar los datos?" icon="pi pi-exclamation-triangle"></p:confirm>
+                            </p:commandButton>
+                             <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                                <p:commandButton value="Si, Reemplazar" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check"></p:commandButton>
+                                <p:commandButton value="Cancelar" type="button" styleClass="ui-confirmdialog-no" icon="pi pi-check"></p:commandButton>
+                            </p:confirmDialog>
                     <p:commandButton value="#{bundle.Cancel}" onclick="UsuarioEditDialog.hide()"/>
                 </h:panelGroup>
             </h:form>

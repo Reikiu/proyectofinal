@@ -25,7 +25,13 @@
                         <p:outputLabel value="#{bundle.EditClienteLabel_telefono}" for="telefono" />
                         <p:inputText id="telefono" value="#{clienteController.selected.telefono}" title="#{bundle.EditClienteTitle_telefono}" required="true" requiredMessage="#{bundle.EditClienteRequiredMessage_telefono}"/>
                     </p:panelGrid>
-                    <p:commandButton actionListener="#{clienteController.update}" value="#{bundle.Save}" update="display,:ClienteListForm:datalist,:growl" oncomplete="handleSubmit(args, 'ClienteEditDialog');"/>
+                    <p:commandButton actionListener="#{clienteController.update}" value="#{bundle.Save}" update="display,:ClienteListForm:datalist,:growl" oncomplete="handleSubmit(args, 'ClienteEditDialog');">
+                            <p:confirm header="Confirmacion" message="Esta seguro que desea modificar los datos?" icon="pi pi-exclamation-triangle"></p:confirm>
+                            </p:commandButton>
+                             <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                                <p:commandButton value="Si, Reemplazar" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check"></p:commandButton>
+                                <p:commandButton value="Cancelar" type="button" styleClass="ui-confirmdialog-no" icon="pi pi-check"></p:commandButton>
+                            </p:confirmDialog>
                     <p:commandButton value="#{bundle.Cancel}" onclick="ClienteEditDialog.hide()"/>
                 </h:panelGroup>
             </h:form>

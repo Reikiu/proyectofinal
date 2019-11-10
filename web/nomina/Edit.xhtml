@@ -28,7 +28,13 @@
                                            itemValue="#{idEmpleadoItem}"/>
                         </p:selectOneMenu>
                     </p:panelGrid>
-                    <p:commandButton actionListener="#{nominaController.update}" value="#{bundle.Save}" update="display,:NominaListForm:datalist,:growl" oncomplete="handleSubmit(args, 'NominaEditDialog');"/>
+                    <p:commandButton actionListener="#{nominaController.update}" value="#{bundle.Save}" update="display,:NominaListForm:datalist,:growl" oncomplete="handleSubmit(args, 'NominaEditDialog');">
+                        <p:confirm header="Confirmacion" message="Esta seguro que desea modificar los datos?" icon="pi pi-exclamation-triangle"></p:confirm>
+                            </p:commandButton>
+                             <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                                <p:commandButton value="Si, Reemplazar" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check"></p:commandButton>
+                                <p:commandButton value="Cancelar" type="button" styleClass="ui-confirmdialog-no" icon="pi pi-check"></p:commandButton>
+                            </p:confirmDialog>
                     <p:commandButton value="#{bundle.Cancel}" onclick="NominaEditDialog.hide()"/>
                 </h:panelGroup>
             </h:form>

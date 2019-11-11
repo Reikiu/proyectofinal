@@ -7,7 +7,6 @@ package modelo;
 
 
 import static com.sun.faces.util.CollectionsUtils.ar;
-import modelo.*;
 import modelo.Proyectos;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -24,7 +23,6 @@ public class DaoProyecto extends  Conexion implements crud{
     ResultSet rs;
     Proyectos p;
      int res = 0;
-
     @Override
     public ArrayList<Object> mostrar() throws ClassNotFoundException, SQLException {
            ArrayList<Object> ar= new ArrayList<>();

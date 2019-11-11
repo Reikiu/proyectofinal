@@ -12,6 +12,8 @@
             <h:form id="DireccionCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{direccionController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateDireccionLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{direccionController.selected.id}" title="#{bundle.CreateDireccionTitle_id}" required="true" requiredMessage="#{bundle.CreateDireccionRequiredMessage_id}"/>
                         <p:outputLabel value="#{bundle.CreateDireccionLabel_direccion}" for="direccion" />
                         <p:inputText id="direccion" value="#{direccionController.selected.direccion}" title="#{bundle.CreateDireccionTitle_direccion}" required="true" requiredMessage="#{bundle.CreateDireccionRequiredMessage_direccion}"/>
                         <p:outputLabel value="#{bundle.CreateDireccionLabel_latitud}" for="latitud" />

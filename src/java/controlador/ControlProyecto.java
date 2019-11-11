@@ -39,6 +39,7 @@ public class ControlProyecto extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
              RequestDispatcher res;
+             
             DaoProyecto ob1=new DaoProyecto();      
             if(request.getParameter("mostrar")!=null){
                 try {
@@ -58,7 +59,8 @@ public class ControlProyecto extends HttpServlet {
                         request.setAttribute("r", "Felicidades, Su registro finalizo exitosamente.!!");
                     }else{
                         request.setAttribute("r", "No pudo ser registrado:( ");
-                    }                    
+                    }
+                    
                     
                 } catch (Exception e) {
                       request.setAttribute("error", e.getMessage());

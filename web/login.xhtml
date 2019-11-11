@@ -4,19 +4,56 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title>Facelet Title</title>
+      <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+  <meta name="description" content=""/>
+  <meta name="author" content=""/>
+
+  <title>Login</title>
+
+  <!-- Custom fonts for this template-->
+  <link href="recursos/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css"/>
+
+  <!-- Custom styles for this template-->
+   <link href="recursos/css/sb-admin.css" rel="stylesheet" type="text/css"/>
+
     </h:head>
-    <h:body>
+    <h:body style="background-image: url('casco.jpg');background-repeat: no-repeat" >
+        <div class="container">
+            <div class="card card-login mx-auto mt-5">
+            <div class="card-header">Iniciar Sesion</div>
+                <div class="card-body">
         <h:form>
+            <center>
             <p:growl id="growl" life="3000"/>
+            <div style="margin-left: 50px"><img src="logo4.png" width="300px" height="100px" alt=""/></div>
+            <br/>
             <h:panelGrid columns="2" id="hppLogin">
-                <p:outputLabel value="Usuario"/>
-                <p:inputText required="true" value="#{loginBeans.nombreUsuario}"/>
-                <p:outputLabel value="Password"/>
-                <p:inputText required="true" type="password" value="#{loginBeans.password}"/>
-                <p:commandButton value="Ingresar" update="hppLogin, growl" action="#{loginBeans.autenticar()}"/> 
+                <h:column/>
+                <p:inputText required="true" placeholder="Ingrese Usuario" class="form-control"  value="#{loginBeans.nombreUsuario}"/>
+                <h:column/>
+                <p:inputText required="true" placeholder="Ingrese Password" class="form-control" type="password" value="#{loginBeans.password}"/>
+             
+                <h:column/>
+                <p:commandButton value="Ingresar" class="btn btn-primary btn-block" icon="ui-icon-key" update="hppLogin, growl" action="#{loginBeans.autenticar()}"/> 
             </h:panelGrid>
+            </center>
         </h:form>
+          <div class="text-center">
+          <br/>
+          <br/>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="recursos/vendor/jquery/jquery.min.js" type="text/javascript"></script>
+  <script src="recursos/vendor/bootstrap/js/bootstrap.bundle.min.js" type="text/javascript"></script>
+
+  <!-- Core plugin JavaScript-->          
+  <script src="recursos/vendor/jquery-easing/jquery.easing.min.js" type="text/javascript"></script>
     </h:body>
 </html>
 

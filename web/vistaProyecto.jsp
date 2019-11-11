@@ -4,7 +4,10 @@
     Author     : hp
 --%>
 
-<%@page contentType="text/html" import="modelo.*" import="java.util.*" pageEncoding="UTF-8"%>
+<%@page import="java.util.Collection"%>
+<%@page import="modelo.Proyectos"%>
+<%@page import="java.util.ArrayList"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,6 +17,9 @@
         <script src="recursos/bootstrap/jquery.js" type="text/javascript"></script>
         <script src="recursos/bootstrap/js/bootstrap.js" type="text/javascript"></script>
         <script src="recursos/bootstrap/sweetalert2.all.min.js" type="text/javascript"></script>
+         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.css"/>
+ 
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.js"></script>
         <title>Nuevo Proyecto</title>
          <script>
             $(document).ready(function(){
@@ -63,16 +69,16 @@
 </style>
 
     <body>
-         <%
-            if(request.getAttribute("proyectos")!=null)
+      <%
+            if(request.getAttribute("proyecto")==null)
                     response.sendRedirect("ControlProyecto?mostrar=1");               
         %>
-        <div id="map"></div>
+        <div id="map"  style="width: 60%;height: 60%;float: left"></div>
         
-	<div id="floating-panel">
-		<div class="input-group" id="flotador">
+            <div id="" style="float: left " >
+                <div class="input-group" id="flotador"  >
  			<input class="form-control" id="address" type="textbox" placeholder="Ingrese una direccion">
-     		<input class="btn btn-primary" id="submit" type="button" value="Buscar">
+                        <input class="btn btn-primary" id="submit" onclick=$('#example').true type="button" value="Buscar">
 		</div>
       
       <div id="flotante2" hidden="on">
@@ -111,23 +117,15 @@
                     <br>
                       <label for="txtFoto">Foto: </label>
                       <input type="file" name="foto" id="foto">
-                       <br> <br> <br>
                        <!--inicia seccion de los botones de agregar, modificar, eliminar y limpiar campos-->  
                         
                        <input type="submit" class="btn btn-info" name="insertar"  id="insertar" value="Agregar">
                        <input type="submit" class="btn btn-info" id="modificar" value="Modificar">
                       <button id="eliminar" name="eliminar" class="btn btn-danger">Borrar</button>
                   </div>
-              </div>
-                
-            </form><br>
-             </div>
-      </div>
-                
-            </div>
-      
-                      <table id="example" class="mdl-data-table"  width="20%" border="1" cellpadding="0" cellspacing="0">
-                <thead class="black white-text"><tr>
+                  <a href="vistaProyecto.jsp" class="btn btn-info"> Nuevo</a>
+                  <table id="example" style="float: left" class="mdl-data-table"  width="50%" border="1" cellpadding="0" cellspacing="0">
+                        <thead><tr>
                         <th> ID PROYECTO </th>
                         <th> DIRECCION  </th>
                         <th> LATITUD </th>
@@ -136,10 +134,10 @@
                         <th> ACCION </th>
                     </tr></thead>
                     <%
-                        if(request.getAttribute("proyectos")!=null){
+                        if(request.getAttribute("proyecto")!=null){
                             
                             ArrayList<Proyectos> pro = new ArrayList<Proyectos>();
-                            pro.addAll((Collection)request.getAttribute("proyectos"));
+                            pro.addAll((Collection)request.getAttribute("proyecto"));
                             
                             for(Proyectos p:pro){
                                 out.println("<tr><td>"+p.getId()+""
@@ -149,7 +147,7 @@
                                         + "</td><td>"+p.getFoto()+""
                                         + "</td>"
                                         + "<td colspan='2'><input type='button' "
-                                        + "value='editar' class='btn btn-danger' onclick=$('#id')."
+                                        + "value='editar' class='btn btn-danger' onclick=$('#idProyecto')."
                                         + "val('"+p.getId()+"');$('#direccion')."
                                         + "val('"+p.getDireccion().replace(" ", "&nbsp;")+"');$('#latitud')."
                                         + "val('"+p.getLatitud().replace(" ", "&nbsp;")+"');$('#longitud')."
@@ -160,14 +158,19 @@
                         }
                     %>
                 </table><br><br> 
-                  </div>
-              </div><br>
-          </div> <br> 
-          
-                    </div><!--termina contenedor del formulario-->
-                  </div><!--termina fila que divide la barra lateral con el formulario-->
+              </div>
+                
+            </form><br>
+             
+           
+            </div>
+      </div>
+                
+            </div>
+      
+                  
                    
-                  <div id="map"></div>
+                 
 
     <script>
 

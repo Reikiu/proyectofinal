@@ -16,24 +16,9 @@
   <link href="recursos/css/sb-admin.css" rel="stylesheet"/>
     </h:head>
     <h:body>
-
-        
-       
-        <h:link outcome="/empleado/List" value="Empleado" target="prin" id="decore"/>
-        <br />
-        <h:link outcome="/maquinaria/List" value="Maquinaria" target="prin" id="decore"/>
-        <br />
-        <h:link outcome="/materiaprima/List" value="Materiaprima" target="prin" id="decore"/>
-        <br />
-        <h:link outcome="/nomina/List" value="Nomina" target="prin" id="decore"/>
-        <br />
-        <h:link outcome="/proyecto/List" value="Proyecto" target="prin" id="decore"/>
-        <br />
-        <h:link outcome="/usuario/List" value="Usuario" target="prin" id="decore"/>
-        <ul class="sidebar navbar-nav">
+        <ul class="sidebar nav-item">
       <li class="nav-item">
-          <h:link outcome="/cliente/List" class="nav-link"  target="prin">
-      
+          <h:link outcome="/cliente/List" class="nav-link"  target="prin">      
         <i class="fas fa-fw fa-cog"></i>
           <span>Cliente</span>
         </h:link>
@@ -49,8 +34,43 @@
         <i class="fas fa-fw fa-cog"></i>
           <span>Empleado</span>
         </h:link>
-      </li>
-      
+             </li>
+        <li class="nav-item">
+            <h:link outcome="/maquinaria/List" class="nav-link" target="prin">
+                <i class="fas fa-fw fa-cog"></i>
+                <span>Maquinaria</span>
+            </h:link>
+        </li>
+        <li class="nav-item">
+            <h:link outcome="/materiaprima/List" class="nav-link" target="prin">
+                <i class="fas fa-fw fa-cog"></i>
+                <span>Materia Prima</span>
+            </h:link>
+        </li>
+        <li class="nav-item">
+            <h:link outcome="/nomina/List" class="nav-link" target="prin">
+                <i class="fas fa-fw fa-cog"></i>
+                <span>Nomina</span>
+            </h:link>
+        </li>
+        <li class="nav-item">
+            <h:link outcome="/proyecto/List" class="nav-link" target="prin">
+                <i class="fas fa-fw fa-cog"></i>
+                <span>Proyecto</span>
+            </h:link>
+        </li>
+        <li class="nav-item">
+            <h:link outcome="/usuario/List" class="nav-link" target="prin">
+                <i class="fas fa-fw fa-cog"></i>
+                <span>Usuario</span>
+            </h:link>
+        </li>
+        <li class="nav-item">
+            <h:link outcome="/usuario/List" class="nav-link" target="prin">
+                <i class="fas fa-fw fa-cog"></i>
+                <span>Usuario</span>
+            </h:link>
+        </li>
     </ul>
     </h:body>
 

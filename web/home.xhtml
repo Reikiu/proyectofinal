@@ -5,7 +5,8 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
     <head>
         <title>TODO supply a title</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -20,13 +21,13 @@ and open the template in the editor.
     <body style="width: 100%;">
          <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-    <a class="navbar-brand mr-1" href="index.html">Constructora</a>
-
-
+    <a class="navbar-brand mr-1" href="#">Constructora</a>
+    
+    
 
     <!-- Navbar Search -->
     <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-     
+      
     </form>
 
     <!-- Navbar -->
@@ -43,7 +44,7 @@ and open the template in the editor.
           <div class="dropdown-divider"/>
           <a class="dropdown-item" href="#">Something else here</a>
         </div>
-      </li>-->
+      </li>
       <li class="nav-item dropdown no-arrow mx-1">
         <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-envelope fa-fw"></i>
@@ -55,7 +56,7 @@ and open the template in the editor.
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Something else here</a>
         </div>
-      </li>
+      </li>-->
       <li class="nav-item dropdown no-arrow">
         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-user-circle fa-fw"></i>
@@ -70,7 +71,17 @@ and open the template in the editor.
          <div id="wrapper">
 
     <!-- Sidebar -->
-    <iframe src="index.xhtml" height="600px" style="width: 190px;"></iframe>
+     <ul class="sidebar navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="index.html">
+          <span></span>
+        </a>
+          <iframe src="index.xhtml"  height="500px" style="width: 200px;background-color: #212529;border: 0"></iframe>
+      </li>
+      
+      
+    </ul>
+    
 
     <div id="content-wrapper" style="background-image: url('casco.jpg');background-repeat: no-repeat;background-size: 100%" >
 
@@ -78,7 +89,7 @@ and open the template in the editor.
 
 
         <!-- Breadcrumbs-->
-        <iframe name="prin" height="500px" width="100%"/>
+        <iframe name="prin" height="500px" width="100%" style="border: 0"/>
 
       </div>
       <!-- /.container-fluid -->
@@ -106,15 +117,17 @@ and open the template in the editor.
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Preparado para Salir?</h5>
           <button class="close" type="button" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">×</span>
           </button>
         </div>
-        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-body">Seleccione "Cerrar sesión" a continuación si está listo para finalizar su sesión actual.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="login.xhtml">Logout</a>
+           <h:form>
+            <h:commandLink class="btn btn-primary" action="#{loginBeans.logout}" value="Cerrar"></h:commandLink>
+            </h:form>
         </div>
       </div>
     </div>

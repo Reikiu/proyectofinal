@@ -15,65 +15,70 @@
   <!-- Custom styles for this template-->
   <link href="recursos/css/sb-admin.css" rel="stylesheet"/>
     </h:head>
-    <h:body>
-        <ul class="sidebar nav-item">
+    <style type="text/css">
+        span{
+            color: white;
+        }
+    </style>
+    <h:body style="background-color: #212529">   
+        <ul class="nav" >
       <li class="nav-item">
           <h:link outcome="/cliente/List" class="nav-link"  target="prin">      
-        <i class="fas fa-fw fa-cog"></i>
+        <i class="fas fa-fw fa-users"></i>
           <span>Cliente</span>
         </h:link>
       </li>
       <li class="nav-item">
          <h:link outcome="/direccion/List" class="nav-link" target="prin" >
-        <i class="fas fa-fw fa-cog"></i>
+        <i class="fas fa-building"></i>
           <span>Direccion</span>
         </h:link>
       </li>
              <li class="nav-item">
           <h:link outcome="/empleado/List" class="nav-link" target="prin" >
-        <i class="fas fa-fw fa-cog"></i>
+        <i class="fas fa-fw fa-user-md"></i>
           <span>Empleado</span>
         </h:link>
              </li>
         <li class="nav-item">
             <h:link outcome="/maquinaria/List" class="nav-link" target="prin">
-                <i class="fas fa-fw fa-cog"></i>
+                <i class="fas fa-fw fa-hdd"></i>
                 <span>Maquinaria</span>
             </h:link>
         </li>
         <li class="nav-item">
             <h:link outcome="/materiaprima/List" class="nav-link" target="prin">
-                <i class="fas fa-fw fa-cog"></i>
+                <i class="fas fa-fw fa-wrench"></i>
                 <span>Materia Prima</span>
             </h:link>
         </li>
         <li class="nav-item">
             <h:link outcome="/nomina/List" class="nav-link" target="prin">
-                <i class="fas fa-fw fa-cog"></i>
+                <i class="fas fa-fw fa-list-alt"></i>
                 <span>Nomina</span>
             </h:link>
         </li>
         <li class="nav-item">
             <h:link outcome="/proyecto/List" class="nav-link" target="prin">
-                <i class="fas fa-fw fa-cog"></i>
+                <i class="fas fa-fw fa-road"></i>
                 <span>Proyecto</span>
             </h:link>
         </li>
-        <li class="nav-item">
+<!--        <li class="nav-item">
             <h:link outcome="/usuario/List" class="nav-link" target="prin">
-                <i class="fas fa-fw fa-cog"></i>
+                <i class="fas fa-fw "></i>
                 <span>Usuario</span>
             </h:link>
-        </li>
+        </li>-->
         <li class="nav-item">
             <h:link outcome="/usuario/List" class="nav-link" target="prin">
-                <i class="fas fa-fw fa-cog"></i>
+                <i class="fas fa-fw fa-user-circle"></i>
                 <span>Usuario</span>
             </h:link>
         </li>
     </ul>
-    </h:body>
-
+    
+</h:body> 
 
 
 

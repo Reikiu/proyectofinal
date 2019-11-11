@@ -5,6 +5,16 @@
  */
 package login.beans;
 
+import java.io.Serializable;
+
+import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedBean;
+
+import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
+
+import login.beans.*;
+
 import controlador.*;
 import javax.inject.*;
 import javax.enterprise.context.SessionScoped;
@@ -12,6 +22,7 @@ import java.io.Serializable;
 import javax.ejb.*;
 import javax.faces.application.*;
 import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
 import modelo.*;
 
 /**
@@ -66,11 +77,22 @@ public class LoginBeans implements Serializable {
         usuarioAutenticado=usuFacade.encotrarUsuarioLogin(nombreUsuario);
         if(usuarioAutenticado!=null){
             if(usuarioAutenticado.getPassword().equals(password)){
+                HttpSession session = SessionUtils.getSession();
+                session.setAttribute("usuario", nombreUsuario);
                return "ingresar"; 
             }
-                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Credenciales erroneos", "Credenciales erroneos"));
-            return  null; 
+               FacesContext.getCurrentInstance().addMessage(
+					null,
+					new FacesMessage(FacesMessage.SEVERITY_WARN,
+							"Incorrect Username and Passowrd",
+							"Please enter correct username and Password"));
+			return "login";
         }
         return  null;
     }
+    public String logout() {
+		HttpSession session = SessionUtils.getSession();
+		session.invalidate();
+		return "login";
+	}
 }
